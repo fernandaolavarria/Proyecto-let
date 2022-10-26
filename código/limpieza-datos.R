@@ -44,3 +44,42 @@ datos_final = datos_final %>% rename(accidente_tipo_1=by_accident_1,
                                      mes = by_month_1)
 
 #cambio de nombre de los valores de las variables (del inglés al español)----
+
+datos_final = datos_final %>% 
+  mutate(accidente_tipo_1 = 
+           case_when(accidente_tipo_1 == "Car Vs. Man" ~ "auto_humano",
+                     accidente_tipo_1 == "Car Vs. Car" ~ "auto_auto",
+                     accidente_tipo_1 == "Car Alone"~ "auto_solo",
+                     accidente_tipo_1 == "Railway Level Crossing" ~ "cruce_via_ferroviaria"),
+         accidente_tipo_2 =
+           case_when(accidente_tipo_2 == "In The Process of Crossing" ~ "cruzando",
+                     accidente_tipo_2 == "In The Process of Passing The Roadway" ~ "en_calzada",
+                     accidente_tipo_2 == "In The Process of Passing The Roadside Zone" ~ "en_borde_camino",
+                     accidente_tipo_2 == "In The Process of Passing The Sidewalk" ~ "en_vereda",
+                     accidente_tipo_2 == "Other/Unknown" ~ "otros", 
+                     accidente_tipo_2 == "Collision"  ~ "colision", 
+                     accidente_tipo_2 == "Rear-End Collision" ~ "colision_trasera" , 
+                     accidente_tipo_2 == "rear-end collision in progress" ~ "colision_trasera_en_progreso",
+                     accidente_tipo_2 == "rear-end collision in parking"  ~ "colision_trasera_estacionando" ,
+                     accidente_tipo_2 == "Rollover/Overturn" ~ "vuelco" , 
+                     accidente_tipo_2 == "Fall"   ~ "caida" ,
+                     accidente_tipo_2 == "Deviation From Road" ~ "desviacion_camino" , 
+                     accidente_tipo_2 == "Railway Level Crossing" ~ "cruzar_nivel_ferroviario" ,
+                     accidente_tipo_2 == "Breakthrough of Crossing Arm" ~ "pasar_barrera_ferrovia" , 
+                     accidente_tipo_2 == "Neglect of Alarm" ~ "negligencia_alarma", 
+                     accidente_tipo_2 == "Preceding Progress" ~ "en_progreso_via_tren"),
+         mes = 
+           case_when(mes == "January" ~ "enero",
+                     mes == "February" ~ "febrero",
+                     mes == "March" ~ "marzo",
+                     mes == "April" ~ "abril",
+                     mes == "May" ~ "mayo",
+                     mes == "June" ~ "junio",
+                     mes == "July" ~ "julio",
+                     mes == "August" ~ "agosto",
+                     mes == "September" ~ "septiembre",
+                     mes == "October" ~ "octubre",
+                     mes == "November" ~ "noviembre",
+                     mes == "December" ~ "diciembre",
+                     TRUE ~ "total")
+  )
