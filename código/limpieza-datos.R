@@ -4,6 +4,7 @@ library(tidyr)
 library(janitor)
 library(dplyr)
 library(stringr)
+library(readr)
 
 #Se cambia la disposición de datos originales para que queden solamente 7 variables en las columnas (trasponer el set de datos)----
 
@@ -83,3 +84,11 @@ datos_final = datos_final %>%
                      mes == "December" ~ "diciembre",
                      TRUE ~ "total")
   )
+
+datos_final %>% View()
+unique(datos_final$accidente_tipo_1)
+#cambiar la clase de ciertas variables
+
+#guardar los datos
+
+write_csv(datos_final, "datos/datos-final.csv")
