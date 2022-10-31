@@ -85,9 +85,15 @@ datos_final = datos_final %>%
                      TRUE ~ "total")
   )
 
-datos_final %>% View()
-unique(datos_final$accidente_tipo_1)
+
+
 #cambiar la clase de ciertas variables
+is.na(datos_final)
+datos_final = datos_final %>% mutate(numero_accidentes = as.numeric(numero_accidentes),
+                         numero_heridos = as.numeric(numero_heridos),
+                         numero_muertes = as.numeric(numero_muertes),
+                         anio = as.numeric(anio))
+datos_final[is.na(datos_final)] = 0
 
 #guardar los datos
 
