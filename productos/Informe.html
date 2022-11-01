@@ -58,7 +58,7 @@ ul.task-list{list-style: none;}
 <h1>Introducción</h1>
 <p>En las distintas sociedades de la actualidad tanto los humanos como los medios de transporte que circulan en las calles han tenido siempre que convivir entre sí. Sin embargo, esta convivencia vial no siempre es la más óptima y segura, esto debido a los distintos tipos de accidentes que ocurren cada día, los cuales pueden dejar personas heridas e incluso muertas. Un fiel reflejo de esta realidad es Corea del Sur, debido a su elevada cantidad de habitantes y el territorio que comprende, el cual es pequeño en comparación. Esta concentración, por tanto, compromete directamente la convivencia y seguridad de los transeúntes y medios de transporte.</p>
 <p>A raíz de lo anterior, se utilizará la base de datos de accidentes de tránsito del país surcoreano entre los años 2005 y 2021, con el objetivo de analizar los datos anuales de los distintos tipos de accidentes que existen, el número de ocurrencia de los mismos, además de la respectiva cantidad de heridos y fallecidos en cada uno de ellos.</p>
-<p>Este trabajo constará de 4 secciones. En la primera sección plantearán las preguntas a resolver en el proceso de análisis, además de entregar información útil para la contextualización del caso a tratar. En la segunda sección se describirán las variables contenidas en la base de datos y también se explicitarán los distintos tipos de accidentes de tráfico que ocurren dentro de la sociedad surcoreana para tener una mayor claridad en las clasificaciones. En la tercera sección se mostrarán los resultados obtenidos, ordenados anualmente. En una primera instancia, éstos se presentarán de manera gobal, y después se seccionarán según algún tipo de accidente en particular. Por último, se harán conclusiones a partir de la información obtenida en cuanto a las preguntas formuladas en el segundo párrafo, además de reflexionar si estas mismas conclusiones podrían extrapolarse a los contextos de otros países.</p>
+<p>Este trabajo constará de 4 secciones. En la primera sección plantearán las preguntas a resolver en el proceso de análisis, además de entregar información útil para la contextualización del caso a tratar. En la segunda sección se describirán las variables contenidas en la base de datos y también se explicitarán los distintos tipos de accidentes de tráfico que ocurren dentro de la sociedad surcoreana para tener una mayor claridad en las clasificaciones. En la tercera sección se mostrarán los resultados obtenidos, ordenados anualmente. En una primera instancia, éstos se presentarán de manera gobal, y después se seccionarán según algún tipo de accidente en particular. Por último, se harán conclusiones a partir de la información obtenida en cuanto a las preguntas formuladas, además de reflexionar si estas mismas conclusiones podrían extrapolarse a los contextos de otros países.</p>
 </section>
 <section id="antecedentes" class="level1">
 <h1>Antecedentes</h1>
@@ -70,9 +70,9 @@ ul.task-list{list-style: none;}
 <p>En la siguiente tabla se describirán las variables del set de datos a trabajar según el nombre, tipo y descripción de la variable :</p>
 <table class="table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 25%">
-<col style="width: 55%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -122,17 +122,17 @@ ul.task-list{list-style: none;}
 <p>Ahora, la variable <code>accidente_tipo_1</code> cuenta con 4 tipos de accidentes, los cuales a su vez tienen subcategorias. Estas clasificaciones están plasmadas en la siguiente tabla:</p>
 <table class="table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 23%">
-<col style="width: 16%">
-<col style="width: 38%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 34%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Auto vs auto</th>
-<th>Auto vs humano</th>
-<th>Auto solo</th>
-<th>Cruce en vía ferroviaria</th>
+<th><code>Auto vs auto</code></th>
+<th><code>Auto vs humano</code></th>
+<th><code>Auto solo</code></th>
+<th><code>Cruce en vía ferroviaria</code></th>
 </tr>
 </thead>
 <tbody>
@@ -171,6 +171,13 @@ ul.task-list{list-style: none;}
 </section>
 <section id="resultados" class="level1">
 <h1>Resultados</h1>
+<p>En una primera aproximación al análisis de nuestros datos, se podría estudiar el comportamiento de los 4 tipos de accidentes principales en cuanto a la frecuencia con la que ocurren en el tiempo, tal como se puede observar en la <em>Figura 1</em>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Informe_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A partir de este gráfico podemos decir que sin duda los incidentes entre autos son los que han producido más cantidad de accidentes a lo largo de los años, con una diferencia bastante más pronunciada respecto de las otras 3 categorías. Sin embargo, a pesar de la divergencia de números que existe para cada grupo, existe un punto en común: estos eventos se han mantenido casi constantes en más o menos medida durante los distintos períodos, sin un descenso significativo en ninguno de ellos.</p>
 </section>
 
 </main>
