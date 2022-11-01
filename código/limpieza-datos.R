@@ -98,3 +98,4 @@ datos_final[is.na(datos_final)] = 0
 #guardar los datos
 
 write_csv(datos_final, "datos/datos-final.csv")
+
