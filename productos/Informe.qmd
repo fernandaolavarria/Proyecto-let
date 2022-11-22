@@ -4,6 +4,7 @@ format: html
 editor: visual
 html: 
   code-fold: true
+lang: es
 ---
 
 # Introducción
@@ -25,7 +26,7 @@ Durante el análisis de los datos de los distintos tipos accidentes de tránsito
 En la siguiente tabla se describirán las variables del set de datos a trabajar según el nombre, tipo y descripción de la variable :
 
 | Variable            | Tipo     | Descripción                                                     |
-|-----------------|-----------------|--------------------------------------|
+|---------------------|----------|-----------------------------------------------------------------|
 | `accidente_tipo_1`  | Caracter | División principal de los tipos de accidentes (4 tipos)         |
 | `accidente_tipo_2`  | Caracter | Subdivisiones dentro de los 4 tipos de accidentes principales   |
 | `mes`               | Numérica | Mes en que se realizó la observación                            |
@@ -37,7 +38,7 @@ En la siguiente tabla se describirán las variables del set de datos a trabajar 
 Ahora, la variable `accidente_tipo_1` cuenta con 4 tipos de accidentes, los cuales a su vez tienen subcategorias. Estas clasificaciones están plasmadas en la siguiente tabla:
 
 | `Auto vs auto`                 | `Auto vs humano`                | `Auto solo`           | `Cruce en vía ferroviaria`                           |
-|----------------|----------------|----------------|-------------------------|
+|--------------------------------|---------------------------------|-----------------------|------------------------------------------------------|
 | Colisión                       | Cruzando                        | Vuelco                | Cruzando a nivel ferroviario                         |
 | Colisión trasera               | Pasando por la calzada          | Colisión              | Irrupción de la barrera ferroviaria                  |
 | Colisión trasera en progreso   | Pasando por el borde del camino | Caída                 | Negligencia en la alarma que avisa que viene el tren |
