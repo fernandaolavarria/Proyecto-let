@@ -83,11 +83,12 @@ graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")
                              "cruce de vía ferroviaria"))
 #Gráfico 4:Accidentes AUTO VS AUTO----
 library(gghighlight)
-auto_auto = c("colision" = "#A3123A",
-          "colision_trasera" = "#317944",
-          "colision_trasera_en_progreso" = "#3C8200",
-          "colision trasera_estacionando" = "black",
-          "otros" = "#598BB8")
+library(scales)
+auto_auto = c("colision" = "#E69F00",
+              "colision_trasera" = "#56B4E9",
+              "colision_trasera_en_progreso" = "#3C8200",
+              "colision trasera_estacionando" = "009E73",
+              "otros" = "black")
 #2 variables descartadas, ya que han tenido un deceso total antes del 2021
 datos_anuales %>% filter(accidente_tipo_1 == "auto_auto") %>% 
   ggplot(aes(anio,numero_accidentes, color = accidente_tipo_2))+
@@ -97,17 +98,19 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_auto") %>%
        y = "accidentes",
        title = "Accidentes a través de los años para accidente tipo 'Auto vs Auto'",
        subtitle = "(2005-2021)",
-       color = "subcategorías")+
-  scale_color_manual(values = auto_auto, 
+       color = "Subcategorías")+
+  scale_color_manual(values = auto_auto,
                      labels = c("colision" = "colisión",
                                 "colision_trasera" = "colisión trasera",
                                 "colision_trasera_en_progreso" = "colisión trasera en progreso",
                                 "colision trasera_estacionando" = "colisión trasera por estacionar"),
-                     limits=c("colision","otros","colision_trasera"))
+                     limits=c("colision","otros","colision_trasera")) + 
+  scale_y_continuous(labels = c("0","25k","50k","75k","100k"))
+  
 #Gráfico 5: Muertos y Heridos Accidente AUTO VS AUTO----
-color_graf5 = c("colision" = "#A3123A",
-                "colision_trasera" = "#317944",
-                "otros" = "#598BB8")
+color_graf5 = c("colision" = "#E69F00",
+                "colision_trasera" = "#56B4E9",
+                "otros" = "black")
 #MUERTES
 #colision va en bajada significativa, pero los otros ahi nomas
 datos_anuales %>% filter(accidente_tipo_1 == "auto_auto",
@@ -119,8 +122,8 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_auto",
                                 "colision_trasera" = "colisión trasera",
                                 "otros" = "otros"))+
   labs(x = NULL,
-       y = "heridos",
-       color = "subcategorías ",
+       y = "muertes",
+       color = "Subcategorías ",
        title = "Muertes a través de los años para accidente tipo 'Auto vs Auto",
        subtitle = "(2005-2021)")
 
@@ -136,25 +139,26 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_auto",
                                 "otros" = "otros"))+
   labs(x = NULL,
        y = "heridos",
-       color = "subcategorías ",
+       color = "Subcategorías ",
        title = "Heridos a través de los años para accidente tipo 'Auto vs Auto'",
-       subtitle = "(2005-2021)")
+       subtitle = "(2005-2021)")+
+  scale_y_continuous(labels=c("0","50k","100k","150k","200k"))
 
 #Gráfico 6:Numero accidentes de AUTO VS HUMANO----
-auto_humano =  c("cruzando" = "#529985",
-                 "en_borde_camino" = "#DDCE47",
-                 "en_calzada" = "#E5A94E",
-                 "en_vereda" = "#C26B51",
-                 "otros" = "#D6BFBB")
+auto_humano =  c("cruzando" = "#DD708E",
+                 "en_borde_camino" = "#E06046",
+                 "en_calzada" = "#33608C",
+                 "en_vereda" = "#7ABE6F",
+                 "otros" = "black")
 #unica baja significativa es "cruzando"
 datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>% 
   ggplot(aes(anio, numero_accidentes, color = accidente_tipo_2)) +
-  geom_line() + 
+  geom_line(size = 1) + 
   scale_y_continuous(limits = c(0,30000))+
   labs(x = NULL,
        y = "accidentes",
        title = "Accidentes a través de los años para accidentes tipo 'Auto vs Humano'",
-       color = "subcategorías",
+       color = "Subcategorías",
        subtitle = "(2005-2021)")+
   scale_color_manual(values = auto_humano,
                      labels = c("cruzando" = "cruzando",
@@ -170,7 +174,7 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>%
 #misma tendencia que en cantidad accidentes
 datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>% 
   ggplot(aes(anio,numero_heridos,color = accidente_tipo_2))+
-  geom_line()+
+  geom_line(size  = 1)+
   scale_color_hue(labels= c(
     "en_borde_camino" = "en el borde del camino",
     "en_calzada" = "en la calzada",
@@ -189,7 +193,7 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>%
 #solo deceso significativo en "cruzando"
 datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>% 
   ggplot(aes(anio,numero_muertes,color = accidente_tipo_2))+
-  geom_line()+
+  geom_line(size = 1)+
   scale_color_hue(labels= c(
     "en_borde_camino" = "en el borde del camino",
     "en_calzada" = "en la calzada",
@@ -198,26 +202,30 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>%
   )) + 
   labs(x = NULL,
        y = "muertos",
-       color = "subcategorías",
+       color = "Subcategorías",
        title = "Muertos a través de los años para accidente tipo 'Auto vs Humano'",
        subtitle = "(2005-2021)") +
   scale_y_continuous(breaks=seq(0,2000,250))
 
 
 #Gráfico 8: Accidentes AUTO SOLO----
+auto_solo = c("caida" = "#E0CB48",
+              "colision" = "#2A883E",
+              "desviacion_camino" = "#4F98C4",
+              "otros" = "black",
+              "vuelco" = "#FD8E3F")
 datos_anuales %>% filter(accidente_tipo_1 == "auto_solo") %>% 
   ggplot(aes(anio,numero_accidentes, color = accidente_tipo_2)) + 
-  geom_line() +
-  scale_color_hue(labels= c(
+  geom_line(size = 1) +
+  scale_color_manual(values = auto_solo,
+                     labels= c(
     "caida" = "caída",
     "colision" = "colisión",
-    "desviacion_camino" = "desviación del camino",
-    "otros" = "otros",
-    "vuelvo" = "vuelco"
+    "desviacion_camino" = "desviación del camino"
   )) + 
   labs(x = NULL,
        y = "accidentes",
-       color = "subcategorías",
+       color = "Subcategorías",
        title = "Accidentes a través de los años para accidente tipo 'Auto Solo'",
        subtitle = "(2005-2021)") 
 #Gráfico 9: Muerto y Heridos AUTO SOLO----
