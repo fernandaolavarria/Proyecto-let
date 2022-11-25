@@ -233,8 +233,9 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_solo") %>%
 #HERIDOS
 datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>% 
   ggplot(aes(anio, numero_heridos, color = accidente_tipo_2)) + 
-  geom_line()+
-  scale_color_hue(labels= c(
+  geom_line(size = 1)+
+  scale_color_manual(values = auto_solo,
+                     labels= c(
     "caida" = "caída",
     "colision" = "colisión",
     "desviacion_camino" = "desviación del camino",
@@ -243,7 +244,7 @@ datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>%
   )) + 
   labs(x = NULL,
        y = "heridos",
-       color = "subcategorías",
+       color = "Subcategorías",
        title = "Heridos a través de los años para accidente tipo 'Auto Solo'",
        subtitle = "(2005-2021)") + 
   scale_y_continuous(breaks=seq(0,7000,by=1000))
@@ -253,8 +254,9 @@ datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>%
 #MUERTOS
 datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>% 
   ggplot(aes(anio, numero_muertes, color = accidente_tipo_2)) + 
-  geom_line()+
-  scale_color_hue(labels= c(
+  geom_line(size  = 1)+
+  scale_color_manual(values = auto_solo,
+                     labels= c(
     "caida" = "caída",
     "colision" = "colisión",
     "desviacion_camino" = "desviación del camino",
@@ -263,7 +265,7 @@ datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>%
   )) + 
   labs(x = NULL,
        y = "muertos",
-       color = "subcategorías",
+       color = "Subcategorías",
        title = "Muertos a través de los años para accidente tipo 'Auto Solo'",
        subtitle = "(2005-2021)")+
   scale_y_continuous(breaks=seq(0,801,200))
