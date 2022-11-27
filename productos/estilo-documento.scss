@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+
+// fuentes tipográficas
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+$font-family-sans-serif: 'Ubuntu', sans-serif;
+
+
+// color
+
+$violeta: #7769F7 !default;
+
+
+/*-- scss:rules --*/
+
+
+/* alineación texto*/
+
+.texto-centrado {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+}
+
+/* color sección seleccionada de la barra de navegación */
+
+.sidebar nav[role=doc-toc] ul>li>a.active {
+    color: $violeta !important;
+}
+
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+    color: $violeta !important;
+}
