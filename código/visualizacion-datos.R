@@ -39,7 +39,8 @@ graf_1 %>%
 
 graf_1 %>% filter(accidente_tipo_1 == "cruce_via_ferroviaria") %>% 
   ggplot(aes(anio, accidentes)) + 
-  geom_line(color = "red") + 
+  geom_line(color = "purple",
+            size = 1) + 
   scale_y_continuous(limits=c(0,20))+
   labs(x = NULL,
        title = "Accidentes a través de los años por accidente tipo 'En la vía ferroviaria'")
