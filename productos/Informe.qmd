@@ -36,7 +36,7 @@ Primeramente, los datos que se utilizarán fueron obtenidos de el [Servicio de I
 Después de [transformar y limpiar la base de datos](https://github.com/fernandaolavarria/Proyecto-let/blob/master/c%C3%B3digo/limpieza-datos.R) para poder usarla apropiadamente, ésta finalmente quedó con las variables que se muestran en la siguiente tabla, en donde se especifica el nombre, tipo y descripción :
 
 | Variable            | Tipo     | Descripción                                                     |
-|--------------|--------------|--------------------------------------------|
+|---------------------|----------|-----------------------------------------------------------------|
 | `accidente_tipo_1`  | Caracter | División principal de los tipos de accidentes (4 tipos)         |
 | `accidente_tipo_2`  | Caracter | Subdivisiones dentro de los 4 tipos de accidentes principales   |
 | `mes`               | Numérica | Mes en que se realizó la observación                            |
@@ -48,7 +48,7 @@ Después de [transformar y limpiar la base de datos](https://github.com/fernanda
 Ahora, la variable `accidente_tipo_1` cuenta con cuatro tipos de accidentes, los cuales a su vez tienen subcategorías. Estas subdivisiones están contenidas en la variable `accidente_tipo_2`, las cuales están plasmadas en la siguiente tabla:
 
 | `Auto vs auto`                 | `Auto vs humano`                | `Auto solo`           | `Cruce en vía ferroviaria`                           |
-|----------------|----------------|----------------|-------------------------|
+|--------------------------------|---------------------------------|-----------------------|------------------------------------------------------|
 | Colisión                       | Cruzando                        | Vuelco                | Cruzando a nivel ferroviario                         |
 | Colisión trasera               | Pasando por la calzada          | Colisión              | Irrupción de la barrera ferroviaria                  |
 | Colisión trasera en progreso   | Pasando por el borde del camino | Caída                 | Negligencia en la alarma que avisa que viene el tren |

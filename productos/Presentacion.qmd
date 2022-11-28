@@ -1,0 +1,25 @@
+---
+title: "Análisis de accidentes de tránsito en Corea del Sur"
+author: "Fernanda Olavarría"
+format: revealjs
+editor: visual
+lang: es
+---
+
+# Motivación
+
+## Contexto
+123
+
+## Relevancia
+
+---
+jajajajaj
+
+# Qué se hizo (datos + metodología)
+
+# Principales resultados (graficos)
+
+# Qué implican los resultados (cómo responden a la pregunta inicial)
+
+# Proyecciones para el futuro
