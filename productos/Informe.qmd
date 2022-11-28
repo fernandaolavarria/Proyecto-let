@@ -19,11 +19,11 @@ En la convivencia diaria entre peatones y automovilistas, el resguardo de la seg
 
 # Introducción
 
-En las distintas sociedades de la actualidad tanto los humanos como los medios de transporte que circulan en las calles han tenido siempre que convivir entre sí. Sin embargo, esta convivencia vial no siempre es la más óptima y segura, esto debido a los distintos tipos de accidentes que ocurren cada día, los cuales pueden dejar personas heridas e incluso muertas. Un fiel reflejo de esta realidad es Corea del Sur, debido a su elevada cantidad de habitantes y el territorio que comprende, el cual es pequeño en comparación a otros países con un mayor terreno y una menor población. Por ejemplo, si se toma el caso de Chile, se puede ver que éste es casi ocho veces más grande y cuenta con casi un tercio de la población del país asiático. Esta concentración, por tanto, compromete directamente la convivencia y seguridad de los transeúntes y medios de transporte.
+En las distintas sociedades de la actualidad tanto los humanos como los medios de transporte que circulan en las calles han tenido siempre que convivir entre sí. Sin embargo, esta convivencia vial no siempre es la más óptima y segura. Esto es debido a los distintos tipos de accidentes que ocurren cada día, los cuales pueden dejar personas heridas e incluso muertas. Un fiel reflejo de esta realidad es Corea del Sur, a causa de su elevada cantidad de habitantes y el territorio que comprende, el cual es pequeño en comparación a otros países con un mayor terreno y una menor población. Por ejemplo, si se toma el caso de Chile, se puede ver que éste es casi ocho veces más grande y cuenta con casi un tercio de la población del país asiático. Esta concentración, por tanto, compromete directamente la convivencia y seguridad de los transeúntes y medios de transporte.
 
-A raíz de lo anterior, se utilizará la base de datos de accidentes de tránsito del país surcoreano entre los años 2005 y 2021, en donde se analizarán los datos anuales de los distintos tipos de accidentes que existen, el número de ocurrencia de los mismos, además de la respectiva cantidad de heridos y fallecidos en cada uno de ellos. Esto con el fin de identificar patrones y, por consiguiente, reflexionar sobre distintos tipos de implementaciones tanto políticas como de sistemas de seguridad que puedan prevenir y reducir los accidentes mismo, así como la cantidad de personas heridas o muertas resultantes de estos incidentes.
+A raíz de lo anterior, se utilizará la base de datos de accidentes de tránsito del país surcoreano entre los años 2005 y 2021, en donde se analizarán los datos anuales de los distintos tipos de accidentes que existen, el número de ocurrencias de los mismos, además de la respectiva cantidad de heridos y fallecidos en cada uno de ellos. Esto con el fin de identificar patrones y, por consiguiente, reflexionar sobre posibles planes de acción que puedan prevenir y reducir los accidentes, además de las personas heridas o muertas resultantes de éstos.
 
-Este trabajo constará de cuatro secciones. En la primera sección se plantearán las preguntas a resolver en el proceso de análisis, además de entregar información útil para la contextualización del caso a tratar. En la segunda sección se describirán las variables contenidas en la base de datos y también se explicitarán los distintos tipos de accidentes de tráfico que ocurren dentro de la sociedad surcoreana para tener una mayor claridad en las clasificaciones. En la tercera sección se mostrarán los resultados obtenidos, ordenados anualmente. En una primera instancia, éstos se presentarán de manera gobal, y después se seccionarán según algún tipo de accidente en particular. Por último, se harán conclusiones a partir de la información obtenida en cuanto a las preguntas formuladas, además de reflexionar si estas mismas conclusiones podrían extrapolarse a los contextos de otros países.
+Este trabajo constará de cuatro secciones. En la primera sección se entregará información útil para la contextualización del caso a tratar. En la segunda sección se describirán las variables contenidas en la base de datos y también se explicitarán los distintos tipos de accidentes de tráfico que ocurren dentro de la sociedad surcoreana para tener una mayor claridad en las clasificaciones. En adición, luego de presentar las tablas correspondientes, se plantearán las preguntas a resolver en el proceso de análisis. En la tercera sección se mostrarán los resultados obtenidos, ordenados anualmente. En una primera instancia, éstos se presentarán de manera global, y después se seccionarán según algún tipo de accidente en particular. Por último, se harán conclusiones a partir de la información obtenida en cuanto a las preguntas formuladas, además de reflexionar si estas mismas conclusiones podrían extrapolarse a los contextos de otros países.
 
 # Antecedentes
 
@@ -33,10 +33,10 @@ Como contextualización, en Corea del Sur viven aproximadamente 51.700.000 perso
 
 Primeramente, los datos que se utilizarán fueron obtenidos de el [Servicio de Información de Estadística de Corea](https://kosis.kr/statHtml/statHtml.do?orgId=132&tblId=DT_V_MOTA_013&vw_cd=MT_ETITLE&list_id=C_5&scrId=&language=en&seqNo=&lang_mode=en&obj_var_id=&itm_id=&conn_path=MT_ETITLE&path=%252Feng%252FstatisticsList%252FstatisticsListIndex.do).
 
-Después de [transformar y limpiar la base de datos](https://github.com/fernandaolavarria/Proyecto-let/blob/master/c%C3%B3digo/limpieza-datos.R) para poder usarla apropiadamente, ésta finalmente quedó con las variables que se muestran en la siguiente tabla, especificando el nombre, tipo y descripción :
+Después de [transformar y limpiar la base de datos](https://github.com/fernandaolavarria/Proyecto-let/blob/master/c%C3%B3digo/limpieza-datos.R) para poder usarla apropiadamente, ésta finalmente quedó con las variables que se muestran en la siguiente tabla, en donde se especifica el nombre, tipo y descripción :
 
 | Variable            | Tipo     | Descripción                                                     |
-|-------------------|-------------------|-----------------------------------|
+|-------------------|-------------------|----------------------------------|
 | `accidente_tipo_1`  | Caracter | División principal de los tipos de accidentes (4 tipos)         |
 | `accidente_tipo_2`  | Caracter | Subdivisiones dentro de los 4 tipos de accidentes principales   |
 | `mes`               | Numérica | Mes en que se realizó la observación                            |
@@ -45,7 +45,7 @@ Después de [transformar y limpiar la base de datos](https://github.com/fernanda
 | `numero_heridos`    | Numérica | Número de heridos resultantes del accidente en cierto año y mes |
 | `numero_muertes`    | Numérica | Número de muertos resultantes del accidente en cierto año y mes |
 
-Ahora, la variable `accidente_tipo_1` cuenta con 4 tipos de accidentes, los cuales a su vez tienen subcategorias. Estas subdivisiones están contenidas en la variable `accidente_tipo_2`, las cuales están plasmadas en la siguiente tabla:
+Ahora, la variable `accidente_tipo_1` cuenta con cuatro tipos de accidentes, los cuales a su vez tienen subcategorías. Estas subdivisiones están contenidas en la variable `accidente_tipo_2`, las cuales están plasmadas en la siguiente tabla:
 
 | `Auto vs auto`                 | `Auto vs humano`                | `Auto solo`           | `Cruce en vía ferroviaria`                           |
 |------------------|------------------|------------------|-------------------|
@@ -55,11 +55,11 @@ Ahora, la variable `accidente_tipo_1` cuenta con 4 tipos de accidentes, los cual
 | Colisión trasera al estacionar | Pasando por la vereda           | Desviación del camino | Progreso anterior                                    |
 | Otros                          | Otros                           | Otros                 | Otros                                                |
 
-Tras la presentación de las variables a utilizar y durante el análisis de los datos de los distintos tipos accidentes de tránsito en Corea del Sur, se tratarán de responder las siguientes preguntas: ¿Cuáles serán los tipos de accidentes que más comúnmente ocurren dentro del país?, ¿de qué manera aumentan, disminuyen o se mantienen estos accidentes con sus respectivas cantidades de muertos y heridos con el paso de los años?
+Tras la presentación de las variables a utilizar y durante el análisis de los datos presentados en este informe se tratarán de responder las siguientes preguntas: ¿Cuáles serán los tipos de accidentes que más comúnmente ocurren dentro del país?, ¿de qué manera aumentan, disminuyen o se mantienen estos accidentes con sus respectivas cantidades de muertos y heridos con el paso de los años?
 
 # Resultados
 
-En una primera aproximación al análisis de nuestros datos, se podría estudiar el comportamiento de los 4 tipos de **accidentes principales** en cuanto a la frecuencia con la que ocurren en el tiempo, tal como se puede observar en la @fig-acc-principal
+En una primera aproximación al análisis de nuestros datos, se procederá a estudiar el comportamiento de los cuatro tipos de **accidentes principales** en cuanto a la frecuencia con la que ocurren en el tiempo, tal como se puede observar en la @fig-acc-principal :
 
 ```{r}
 #| warning: false
@@ -91,7 +91,7 @@ graf_1 %>%
                              "cruce de vía ferroviaria"))
 ```
 
-A partir de este gráfico podemos decir que sin duda los incidentes entre autos son los que han producido más cantidad de accidentes a lo largo de los años, con una diferencia bastante más pronunciada respecto de las otras 3 categorías. Sin embargo, a pesar de la divergencia de números entre los grupos, existe un punto en común: estos eventos se han mantenido casi constantes en más o menos medida a lo largo de los años, sin un descenso significativo en ninguno de ellos.
+A partir de este gráfico podemos decir que sin duda los incidentes entre autos son los que han producido más cantidad de accidentes a lo largo de los años, con una diferencia bastante más pronunciada respecto de las otras tres categorías. Sin embargo, a pesar de la divergencia de números entre los grupos, existe un punto en común: estos eventos se han mantenido casi constantes en más o menos medida a lo largo de los años, sin un descenso significativo en ninguno de ellos.
 
 En el gráfico anterior también se puede notar que los accidentes de tipo "cruce en vía ferroviaria" tienen una frecuencia demasiado baja. Este hecho queda aún más claro en la @fig-acc-tren :
 
@@ -110,9 +110,9 @@ graf_1 %>% filter(accidente_tipo_1 == "cruce_via_ferroviaria") %>%
        y = "accidentes")
 ```
 
-Como se puede observar, el número de ocurrencias de accidentes no supera los quince casos en el paso del tiempo, por lo que para efectos del análisis, esta variable no será significativa para tomarse en cuenta en lo que sigue del estudio.
+Como se puede observar, el número de ocurrencias de accidentes no supera los quince casos durante todo el período comprendido. Por tanto, para efectos del análisis, esta variable no será significativa para tomarse en cuenta en lo que sigue del estudio.
 
-Ahora, si se toma en cuenta los heridos resultantes de las categorías de accidentes restantes, se puede observar lo que se muestra en la @fig-her-principal :
+Ahora, si se toman en cuenta los heridos resultantes de las categorías de accidentes restantes, se puede observar lo muestra la @fig-her-principal :
 
 ```{r}
 #| warning: false
@@ -137,7 +137,7 @@ graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")
                              "cruce de vía ferroviaria"))
 ```
 
-De aquí podemos hacer dos observaciones: La primera es que la frecuencia de los accidentes de tipo "auto vs humano" y "auto solo" producen casi la misma cantidad de heridos, a diferencia de el accidente tipo "auto vs auto", el cual duplica la cantidad de heridos en comparación a la cantidad de accidentes. Una segunda observación es que la cantidad de heridos sigue más o menos el mismo patrón que la cantidad de accidentes. Sin embargo, se puede advertir una pequeña variación en la categoría "auto vs auto", ya que la cantidad de accidentes ha tendido a subir con el paso de los años y, por el contrario, la cantidad de heridos ha tendido a la baja.
+De aquí podemos hacer dos observaciones: La primera es que para las categorías "auto vs humano" y "auto solo" se tiene casi la misma frecuencia en cuanto a heridos y accidentes. A diferencia de lo anterior, el accidente tipo "auto vs auto" duplica la cantidad de heridos en comparación a la cantidad de accidentes. Una segunda observación es que la cantidad de heridos sigue más o menos el mismo patrón que la cantidad de accidentes. Sin embargo, se puede advertir una pequeña variación en la categoría "auto vs auto", ya que la cantidad de accidentes ha tendido a subir con el paso de los años y, por el contrario, la cantidad de heridos ha tendido a la baja.
 
 Para finalizar esta sección de análisis de las distintas divisiones principales de accidentes, se mostrará la cantidad de muertos de éstas, como se puede observar en la @fig-muer-principal :
 
@@ -162,11 +162,11 @@ graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")
                              "cruce de vía ferroviaria"))
 ```
 
-Como primer comentario a lo que muestra el gráfico, se puede decir que la cantidad de accidentes empieza desde una cifra muchísimo menor a la cantidad de accidentes o heridos. También se puede decir que todos los accidentes siguen la misma tendencia, sin embargo, todos van disminuyendo sostenidamente al pasar los años.
+Como primer comentario a lo que muestra el gráfico, se puede decir que la cantidad de accidentes empieza desde una cifra muchísimo menor a la cantidad de accidentes o heridos. También se puede decir que todos los accidentes siguen la misma tendencia, no obstante, todos van disminuyendo sostenidamente al pasar los años.
 
-Pasando a otra sección del estudio, ahora se procederá a examinar cada tipo de accidente principal por separado, en donde se distinguirán los patrones de sus mismas subdivisiones en cuánto a la cantidad de accidentes, heridos y muertos de cada uno de ellos.
+Pasando a otra sección del estudio, ahora se procederá a examinar cada tipo de accidente principal por separado, en donde se distinguirán los patrones de sus subdivisiones en cuánto a la cantidad de accidentes, heridos y muertos de cada uno de ellos.
 
-Partiendo con el tipo de accidente principal **auto vs auto,** se mostrará el comportamiento de la cantidad de accidentes a través de la siguiente @fig-acc-auto_auto . Dos categorías fueron atenuadas y no son mencionadas en el gráfico debido a que han estado más de tres años sin ninguna incidencia:
+Partiendo con el tipo de accidente principal **auto vs auto,** se mostrará el comportamiento de la cantidad de accidentes en la @fig-acc-auto_auto . Dos categorías fueron atenuadas y no son mencionadas en el gráfico debido a que han estado más de tres años sin ninguna incidencia:
 
 ```{r}
 #| warning: false
@@ -199,7 +199,7 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_auto") %>%
 
 Tanto para la subcategoría "colisión" como para "otros" han habido años de disminución de estos accidentes, sin embargo, desde los últimos cinco a siete años ha empezado un aumento bastante considerable de los mismos. Para la subcategoría "colisión trasera", ésta tuvo un ascenso muy pronunciado en muy poco tiempo, sin embargo el número de ocurrencias ha permanecido más o menos estable durante unos seis años, con una leve caída.
 
-A continuación se observará la evolución en cuanto a los heridos que resultan de esta clase de accidente, plasmado en la @fig-her-auto_auto :
+A continuación se observará la evolución de heridos que resultan de esta clase de accidente, plasmado en la @fig-her-auto_auto :
 
 ```{r}
 #| warning: false
@@ -287,7 +287,7 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>%
 
 ```
 
-Para los accidentes que se producen cuando una persona cruza la calle, después del año 2015 se evidencia una clara baja sostenida, sin embargo, sigue siendo la clase que más causa accidentes junto con "otros". Las ocurrencias de las clases mencionadas anteriormente triplican o cuatruplican la de las demás clases mostradas en el gráfico, cuya evolución en el tiempo es más bien estable, aunque con una muy leve disminución.
+Para los accidentes que se producen cuando una persona cruza la calle, después del año 2015 se evidencia una clara baja sostenida. Aún así, sigue siendo la clase que más causa accidentes junto con "otros". Las ocurrencias de las clases mencionadas anteriormente triplican o cuatruplican las de las demás clases mostradas en el gráfico, cuya evolución en el tiempo es más bien estable, aunque con una muy leve disminución.
 
 Pasando a la sección de heridos, se puede notar lo siguiente a partir de la @fig-her-auto_humano :
 
@@ -316,9 +316,9 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>%
 
 ```
 
-Se podría decir que este gráfico es prácticamente idéntico al gráfico expuesto anteriormente, por lo que se concluye que siempre al menos una persona resulta herida en estos tipos de eventualidades.
+Se podría afirmar que este gráfico es prácticamente idéntico al gráfico expuesto anteriormente, por lo que se concluye que siempre al menos una persona resulta herida en estos tipos de eventualidades.
 
-Siguiendo con las personas fallecidas, en la @fig-mue-auto_humano enseñada a continuación se puede advertir lo siguiente:
+Siguiendo con las personas fallecidas, en la @fig-mue-auto_humano se puede advertir lo siguiente:
 
 ```{r}
 #| warning: false
@@ -344,9 +344,9 @@ datos_anuales %>% filter(accidente_tipo_1 == "auto_humano") %>%
 
 ```
 
-Se puede apreciar que los fallecimientos ocasionados cuando una persona cruza la calle siguen liderando en cantidad, a pesar una disminución significativa a través del tiempo. Sin embargo, las demás categorías, aunque menores en su frecuencia, no han tenido bajas muy sorpredentes en dieciséis años.
+Se puede apreciar que los fallecimientos ocasionados cuando una persona cruza la calle siguen liderando en cantidad, a pesar de una disminución significativa en el tiempo. Por otra parte, las demás categorías, aunque menores en su frecuencia, no han tenido bajas muy sorpredentes en dieciséis años.
 
-El último tipo de accidente a examinar será **auto solo**, iniciando con la variación de la cantidad de accidentes en el tiempo, tal como se muestra en la @fig-acc-auto_solo :
+El último tipo de accidente a examinar será **auto solo**, iniciando con la variación de la cantidad de accidentes a través de los años, tal como se muestra en la @fig-acc-auto_solo :
 
 ```{r}
 #| warning: false
@@ -404,7 +404,7 @@ datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>%
 
 ```
 
-De aquí se puede afirmar en primer lugar que este gráfico sigue casi la misma relación que el gráfico previo de accidentes. En segundo lugar, a lo sumo dos personas resultan heridas en estos incidentes. Por último, las dos subcategorías provocan más heridos son "otros" y "desviación del camino"
+De aquí se puede afirmar en primer lugar que este gráfico sigue casi la misma relación que el gráfico previo de accidentes. En segundo lugar, a lo sumo dos personas resultan heridas en estos incidentes. Por último, las dos subcategorías que provocan más heridos son "otros" y "desviación del camino"
 
 Por último, para las muertes ocurridas se puede observar el siguiente patrón, como se muestra en la @fig-muer-auto_solo :
 
@@ -431,18 +431,18 @@ datos_anuales %>% filter(accidente_tipo_1=="auto_solo") %>%
 
 ```
 
-Por lo que se observa en este gráfico, se puede aseverar que todas las subclases han ido aumentando y disminuyendo durante los años, sin embargo, en todas se muestra una baja considerable con respecto a los casos registrados en el año 2005.
+Por lo que se observa en este gráfico, se puede aseverar que todas las subclases han ido aumentando y disminuyendo durante el tiempo. Pese a esto, en todas se muestra una baja considerable con respecto a los casos registrados en el año 2005.
 
 # Conclusión
 
 Como se pudo ver a lo largo del análisis de este reporte, se pudieron distinguir distintos patrones de comportamiento en cuando a el número de accidentes, heridos y muertos en las diferentes clasificaciones a lo largo del tiempo.
 
-Primeramente, para los **accidentes** y **heridos**, en ambos casos se obtuvieron las mismas tendencias, con la única diferencia que la cantidad en "heridos" fue mayor. En cuanto a estas tendencias se puede decir lo siguiente: los que lideraron en cantidad y con una gran diferencia respecto de otras clasificaciones fueron los accidentes de "auto vs auto", los choques entre vehículos , los atropellos de gente cuando cruzan la calle y, por último, los choques en solitario de un automóvil . Otro rasgo importante a mencionar es que no se apreció un descenso significativo en casi ningún caso, independiente de si fue visto desde una clasificación general o más particular según subcategoría. La única excepción a lo mencionado anteriormente fueron los accidentes provocados cuando una persona es atropellada al cruzar la calle. No obstante, aún así seguía liderando en números con una gran diferencia respecto de las demás subcategorías en la que se encontraba.
+Primeramente, para los **accidentes** y **heridos**, en ambos casos se obtuvieron las mismas tendencias, con la única diferencia que la cantidad en "heridos" fue mayor. En cuanto a estas tendencias se puede decir lo siguiente: los que lideraron en cantidad y con una gran diferencia respecto de otras clasificaciones fueron los accidentes de "auto vs auto" dentro de los accidentes principales; y los choques entre vehículos , los atropellos de gente cuando cruzan la calle y los choques en solitario de un automóvil dentro de las distintas subcategorías . Otro rasgo importante a mencionar es que no se apreció un descenso significativo en casi ningún caso, independiente de si fue visto desde una clasificación general o más particular según subcategoría. La única excepción a lo mencionado anteriormente fueron los accidentes provocados cuando una persona es atropellada al cruzar la calle. No obstante, aún así seguía liderando en números con una gran diferencia respecto de las demás subcategorías del grupo en que se encontraba.
 
-Por último, para las **muertes** se pudo observar que en todas las clasificiones generales se percibió una baja sostenida en el tiempo. Aun así, los accidentes tipo "auto vs auto" y "auto vs humano" son los que más provocan defunciones. Ahora visto desde las subcategorías de los distintos tipos de accidentes, se pudo notar lo siguiente: Primero, las subcategorías que lideran en muertes son los atropellos de peatones al cruzar la vía, además de los choques de autos con otros autos y en solitario. Segundo, todas las subcategorías siempre tendían a disminuir sus casos a través del tiempo, salvo solamente las colisiones entre autos, que desde el 2016 sufrió un aumento rápido para después permanecer más o menos estable hasta el 2021.
+Por último, para las **muertes** se pudo observar que en todas las clasificiones generales se percibió una baja sostenida en el tiempo. Aun así, los accidentes tipo "auto vs auto" y "auto vs humano" son los que más provocan defunciones. Ahora, visto desde las subcategorías de los distintos tipos de accidentes, se pudo notar lo siguiente: Primero, las subcategorías que lideran en muertes son los atropellos de peatones al cruzar la vía, además de los choques de autos con otros autos y en solitario. Segundo, todas las subcategorías siempre tendían a disminuir sus casos a través del tiempo, salvo solamente las colisiones entre autos, que desde el 2016 sufrió un aumento rápido para después permanecer más o menos estable hasta el 2021.
 
 A la luz de estos hallazgos, las preguntas y objetivos planteados en el reporte es posible afimar que, por un lado, se ha advertido una notoria disminución desde el 2005 hasta el 2021 en las muertes originadas por los diversos tipos de accidentes y sus subcategorías. No obstante, no se puede sostener lo mismo para la evolución de accidentes y heridos. Las tendencias de éstas no han presentado mayor cambio a favor de una caída sostenida y notable de los casos, a pesar de sus fluctuaciones a veces irregulares en el tiempo. Esto es de suma importancia, ya que al reducir efectivamente la cantidad de accidentes, naturalmente habría una reduccion considerable de personas accidentadas y fallecidas.
 
 Debido a lo importante que es aminorar la ocurrencia de estos incidentes, se sugiere estudiar y analizar de manera exhaustiva las razones de por qué no ha habido un progreso en la reducción de accidentes y heridos. Esto con el fin de enfocar estrategias efectivas dentro del plano de prevención de los accidentes en sí mismos.
 
-Por último, a pesar de que este análisis involucró solamente a un país, no deja de ser de interés para los demás paises. Esto debido a que en casi la mayoría de las sociedades se tiene que lidiar con esta convivencia peatonal-vehicular, y en donde no se está exento de estos eventos muchas veces trágicos.
+Por último, a pesar de que este análisis involucró solamente a un país, no deja de ser de interés para los demás paises. Esto debido a que en casi la mayoría de las sociedades se tiene que lidiar con esta convivencia peatonal-vehicular, y en donde no se está exento de la ocurrencia de estos eventos muchas veces trágicos.
