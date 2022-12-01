@@ -134,9 +134,7 @@ graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")
 ## Subcategorías
 
 -   Tendencias:
-    -   Auto vs Auto : Choque entre autos
-    -   Auto vs Humano : Atropello al cruzar la calle
-    -   Auto solo : Choque en solitario
+    - Mismas tendencias que en accidentes y heridos.
 -   Baja sostenida en casi todas las subcategorías.
 
 - **Excepción:** Colisión trasera entre autos
