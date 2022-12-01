@@ -1,25 +1,160 @@
 ---
 title: "Análisis de accidentes de tránsito en Corea del Sur"
 author: "Fernanda Olavarría"
-format: revealjs
+format: 
+  revealjs:
+    theme: beige
+    incremental: true
 editor: visual
 lang: es
 ---
 
 # Motivación
 
-## Contexto
-123
+# Contexto
 
-## Relevancia
+-   Existe una [convivencia constante vehículo-peatón]{style="color: blue;"} en las sociedades actuales.
+-   Ocurren [múltiples accidentes]{style="color: blue;"} diariamente.
 
----
-jajajajaj
+# Relevancia
 
-# Qué se hizo (datos + metodología)
+-   La [seguridad]{style="color: blue;"} ciudadana y la [vida]{style="color: blue;"} de las personas están [en riesgo]{style="color: blue;"}.
+-   Instancia de reflexión hacia [planes de acción futura]{style="color: blue;"} para la reducción de accidentes.
 
-# Principales resultados (graficos)
+# Qué se hizo
 
-# Qué implican los resultados (cómo responden a la pregunta inicial)
+# Datos
 
-# Proyecciones para el futuro
+Obtención de la **base de datos de Corea del sur de accidentes de tránsito** desde el año 2005 al 2021.
+
+## Variables
+
+-   Muertes
+-   Accidentes
+-   Heridos
+-   Accidentes principales
+    -   Auto vs Auto
+    -   Auto vs Humano
+    -   Auto solo
+    -   ~~Cruce en vía ferroviaria~~
+-   Subcategorías de accidentes principales
+
+# Metodología
+
+[Análisis descriptivo anual]{style="color: blue;"} de los patrones en accidentes, heridos y muertos del período comprendido.
+
+# Objetivo
+
+Analizar el [comportamiento y las tendencias]{style="color: blue;"} de las variables a estudiar.
+
+# Principales resultados
+
+# Accidentes y heridos
+
+## Principal
+
+::: panel-tabset
+### Accidentes
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+datos_final = read_csv(here::here("datos/datos-final.csv"))
+datos_anuales = datos_final %>% filter(mes == "total", accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo"))
+
+graf_1 = datos_anuales %>%  group_by(accidente_tipo_1, anio,.add = TRUE) %>% 
+  summarize(accidentes = sum(numero_accidentes),
+            heridos = sum(numero_heridos),
+            muertes  = sum(numero_muertes))
+
+graf_1 %>%
+  ggplot(aes(anio, accidentes, color = accidente_tipo_1))+
+  geom_line(size = 1) +
+  scale_color_hue(labels = c("auto_auto" = "auto vs auto",
+                                "auto_humano" = "auto vs humano",
+                                "auto_solo" = "auto solo")) +
+  scale_y_continuous(breaks = seq(0, 180000, by =15000),
+                     labels = c("0","15k","30k","45k","60k","75k","90k","105k","120k","135k","150k","165k","180k")) + 
+  labs(title = "Accidentes principales (2005-2021)",
+       x = NULL,
+       y = "cantidad de accidentes",
+       color = "Tipo de accidente")
+```
+
+### Heridos
+
+```{r}
+graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")) %>% 
+  ggplot(aes(anio, heridos, color = accidente_tipo_1)) + 
+  geom_line(size = 1) + 
+  scale_y_continuous(limits = c(0,300000),
+                     breaks = seq(0,300000,by=50000),
+                     labels = c("0","50k","100k","150k","200k","250k","300k"))+
+  labs(title = "Heridos en accidentes principales (2005-2021)",
+       x = NULL,
+       y = "heridos",
+       color = "Tipo de accidente") + 
+  scale_color_hue(labels = c("auto vs auto",
+                             "auto vs humano",
+                             "auto solo"))
+```
+:::
+
+## Subcategorías
+
+-   Tendencias:
+    -   Auto vs Auto : Choque entre autos
+    -   Auto vs Humano : Atropello al cruzar la calle
+    -   Auto solo : Choque en solitario
+-   No hubo descenso significativo en casi ninguna variable. 
+
+- **Excepción:** Atropello al cruzar la calle
+
+# Muertes
+
+## Principal
+
+```{r}
+graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")) %>% 
+  ggplot(aes(anio, muertes, color = accidente_tipo_1)) + 
+  geom_line(size = 1) + 
+  scale_y_continuous(limits = c(0,2700),
+                     breaks = seq(0,3000,by=500))+
+  labs(title = "Muertes en accidentes principales (2005-2021)",
+       x = NULL,
+       y = "cantidad de muertes",
+       color = "Tipo de accidente") + 
+  scale_color_hue(labels = c("auto vs auto",
+                             "auto vs humano",
+                             "auto solo"))
+```
+
+## Subcategorías
+
+-   Tendencias:
+    -   Auto vs Auto : Choque entre autos
+    -   Auto vs Humano : Atropello al cruzar la calle
+    -   Auto solo : Choque en solitario
+-   Baja sostenida en casi todas las subcategorías.
+
+- **Excepción:** Colisión trasera entre autos
+
+# ¿Qué implican los resultados?
+
+# Conclusiones
+
+-   Descenso sostenido para las muertes.
+-   Sin embargo, no es el caso para accidentes y heridos.
+-   **Pregunta** : ¿Centrarse en la reducción de accidentes?
+
+# Recomendación
+
+Revisar exhaustivamente el [por qué no ha habido una reducción significativa en accidentes y heridos]{style="color: blue;"} para implementación de estrategias efectivas.
+
+# Proyecciones futuras
+
+Si se revisaran las **bases de datos de otros países**, ¿se obtendrían las mismas conclusiones?
+
+# Gracias!

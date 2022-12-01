@@ -1,0 +1,77 @@
+/*-- scss:defaults --*/
+
+// fuentes tipográficas
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+$font-family-sans-serif: 'Rubik', sans-serif;
+$font-family: 'Noto Sans Mono', monospace;
+
+
+// color
+
+
+$azul: #4f78d6 !default;
+$celeste: #cad6f2 !default;
+$amarillo: #ffdd35 !default;
+$casi-blanco: #fdfcfb !default;
+
+
+/*-- scss:rules --*/
+
+/* combinaciones colores presentación */
+
+.reveal .fondo-azul {
+  background-color: $azul;
+  color: $casi-blanco;
+}
+
+.reveal .fondo-gris {
+  background-color: #97a1aa;
+  color: $casi-blanco;
+}
+
+
+/* alineación texto*/
+
+.centrado {
+  text-align: center;
+}
+
+.justificado {
+  text-align: justify;
+}
+
+.a-la-derecha {
+  text-align: right;
+}
+
+
+/* tamaños fuentes */
+
+.ultra-grande {
+  font-size: 3.5em;
+}
+
+.grande {
+  font-size: 1.5em;
+}
+
+.pequenio {
+  font-size: 0.75em;
+}
+
+
+/* color fragmentos de texto */
+
+.texto-amarillo {
+  color: $amarillo;
+  font-weight: bold;
+}
+
+/* color barra de navegación */
+
+.nav-link .active {
+  color: #7769F7;
+}
