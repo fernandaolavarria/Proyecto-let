@@ -147,11 +147,11 @@ graf_1 %>% filter(accidente_tipo_1 %in% c("auto_auto","auto_humano","auto_solo")
 
 -   Descenso sostenido para las muertes.
 -   Sin embargo, no es el caso para accidentes y heridos.
--   **Pregunta** : ¿Centrarse en la reducción de accidentes?
+
 
 # Recomendación
 
-Revisar exhaustivamente el [por qué no ha habido una reducción significativa en accidentes y heridos]{style="color: blue;"} para implementación de estrategias efectivas.
+Revisar exhaustivamente el [por qué no ha habido una reducción significativa en accidentes y heridos]{style="color: blue;"} para implementación de estrategias efectivas especialmente en el ámbito de los accidentes.
 
 # Proyecciones futuras
 
